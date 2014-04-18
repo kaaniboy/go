@@ -3,7 +3,6 @@ package main
 import (
 	"html/template"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -33,12 +32,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func saveHandler(w http.ResponseWriter, r *http.Request) {
-	question := r.FormValue("question")
-	log.Println("Text: ", question)
-
-	//	p := &Problem{Question: question, Answer: []byte("")}
-	//	p.save()
-	//	http.Redirect(w, r, "/troll", http.StatusFound)
+	question := []byte(r.FormValue("question"))
+	p := &Problem{Question: question, Answer: []byte("")}
+	p.save()
+	http.Redirect(w, r, "/", http.StatusFound)
 }
 
 func main() {
