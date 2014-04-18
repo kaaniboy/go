@@ -1,4 +1,10 @@
-<h1>Practicing With Go</h1>
+<h1>Add A Question</h1>
 
-{{printf "%s" .Body}}
+<form action="/save" method="POST">
+	Question: <input type="text" name="question" id="question">
+	<br>
+	Answer: <input type="text" name="answer">
+	<br>
+	<input type="submit" value="submit">
+</form>
 
